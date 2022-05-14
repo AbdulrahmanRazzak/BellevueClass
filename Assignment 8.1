@@ -1,0 +1,32 @@
+# This application Creates and adds a new file name personal informauion which includes, Name, Address. and Phone Number .
+#  after the execution of the program, the program will display the user's newly created file contents
+
+import os # Imports the OS pythion module
+
+dir = os.getcwd() + '\\' + input ("Where would you like to save your file?\n") # Locates the current working directory and prompts user for where to save the new file.
+
+try:
+    os.chdir(dir) # Changes the directory to the user specified directory
+except: # Error handling  
+    print("The File name you entered does not have a corresponding folder in the working directory. Please check and ensure to enter the correct file name") # Displays an error to the user if the file name directory is not found
+    exit() # Exits the program
+
+file_name = input ("What is the file name of which you wish to save the new data in\n") + ".txt" # Prompts the user to input the new file name
+
+user_name = input ("What is your name\n") # Prompts the user for a name to include in the new file
+
+address = input ("What is your address\n") # Prompts the user for an address to include in the new file
+
+phone_num = input ("What is your phone number?\n")# Prompts the user for a phone number to include in the new file
+
+file = open(file_name, "w") # Opens the new user provided file name in the Writing state
+
+file.write ("{}, {}, {}".format(user_name,address,phone_num)) # Write the conotents that the user entered to the new file 
+
+file.close() # Closes the file after adding the contents
+
+file = open(file_name, "r") # Opens the new user provided file name in the reading state
+
+print(file.read()) # Prints the file's content to the user for validation purposes
+
+file.close() # Closes the file after dispaying its information5
